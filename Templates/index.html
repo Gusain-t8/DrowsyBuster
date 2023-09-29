@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drowsiness Detection</title>
+    <style>
+      body {
+        
+        /* background-color: #5f8993; */
+        color: #ffffff;
+        text-align: center;
+      }
+      
+
+      h1 {
+        color: #4f484a;
+        font-size: 38px;
+        margin-top: 50px;
+      }
+
+      #video {
+        margin-top: 30px;
+        margin-bottom: 20px;
+      
+      }
+
+      #buttons {
+        margin-bottom: 30px;
+      }
+
+      .button {
+        background-color: #761833;
+        border: 2px solid #242627;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        cursor: pointer;
+      }
+
+      /* #text{
+        color: #4f484a;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        line-height: 0.4;
+        text-align: center;
+      } */
+
+    .bg{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .gf{
+        width: 100%;
+        height: 120%;
+        object-fit: cover;
+    }
+    </style>
+  </head>
+  <body>
+    <h1 >DROWSINESS DETECTION</h1>
+    <div class="bg">
+        <img class="gf" src="http://www.clipartbest.com/cliparts/dc7/6ez/dc76ezEgi.gif" alt="not found">
+    </div>
+    <div id="video">
+        <img src="{{ url_for('video_feed') }}" width="750" height="450" />
+      </div>
+    <div id="buttons">
+      <button class="button" onclick="start()">START</button>
+      <button class="button" onclick="stop()">STOP ALARM</button>
+    </div>
+    <!-- <div id="text">
+      <h3> Driver drowsiness detection is a real time monitoring and alerting system.</h3>
+      <h5> Press "START" to start Drowsiness Detection system.</h5> 
+      <h5> Press "STOP ALARM" to stop the alarm.</h5> 
+
+
+    </div> -->
+
+    <script>
+      function start() {
+        fetch("/start", { method: "POST" });
+      }
+
+      function stop() {
+        fetch("/stop", { method: "POST" });
+      }
+    </script>
+  </body>
+</html>
