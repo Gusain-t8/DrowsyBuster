@@ -93,8 +93,8 @@ def drowsiness_detection():
     time.sleep(1.0)
 
     # Twilio API credentials
-    account_sid = "ACc51ce80eee4fedeab1a81b53b0f84df6"
-    auth_token = "757acda04c6a31e5b7f26ce017e5c105"
+    account_sid = "XXX"
+    auth_token = "XXX"
     client = Client(account_sid, auth_token)
     phone_number = "XXX"  # Enter the recipient's phone number
 
